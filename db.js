@@ -2,10 +2,25 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const fs = require("fs");
 
-// KIỂM TRA: Nếu chạy trên Render (có thư mục /data) thì dùng /data, nếu chạy máy cá nhân thì dùng thư mục gốc
+// 1. Đường dẫn file thật trên Render Disk (/data)
 const dbPath = process.env.RENDER ? "/data/database.db" : path.resolve(__dirname, "database.db");
 
+// 2. Đường dẫn file mồi bạn vừa upload lên GitHub
+const initialDbPath = path.resolve(__dirname, "initial_data.db");
+
+// 3. LOGIC NẠP DỮ LIỆU TỰ ĐỘNG (Chỉ chạy khi ổ đĩa trống)
+if (process.env.RENDER && !fs.existsSync(dbPath)) {
+    console.log("Empty disk detected. Cloning initial_data.db to /data...");
+    if (fs.existsSync(initialDbPath)) {
+        fs.copyFileSync(initialDbPath, dbPath);
+        console.log("✅ Database cloned successfully!");
+    } else {
+        console.log("❌ Warning: initial_data.db NOT found in repository!");
+    }
+}
+
 const db = new sqlite3.Database(dbPath);
+
 
 db.serialize(() => {
     console.log("--- Đang khởi tạo cơ sở dữ liệu ---");
