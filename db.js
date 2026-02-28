@@ -2,8 +2,9 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const fs = require("fs");
 
-// Đường dẫn file database
-const dbPath = path.resolve(__dirname, "database.db");
+// KIỂM TRA: Nếu chạy trên Render (có thư mục /data) thì dùng /data, nếu chạy máy cá nhân thì dùng thư mục gốc
+const dbPath = process.env.RENDER ? "/data/database.db" : path.resolve(__dirname, "database.db");
+
 const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
