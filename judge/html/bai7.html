@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Minh Code Challenge</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f6fb;
+      color: #333;
+    }
+
+    /* HEADER */
+    .header {
+      background: #2f6ae1;
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .user-dropdown {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+
+    /* PROFILE */
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      background: #5b2d8b;
+      border-radius: 50%;
+    }
+
+    .profile h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .profile p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .design {
+      color: #1fa463;
+      border-bottom: 2px solid #1fa463;
+      padding-bottom: 6px;
+    }
+
+    .quiz {
+      color: #2f6ae1;
+      border-bottom: 2px solid #2f6ae1;
+      padding-bottom: 6px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      color: #666;
+      padding-bottom: 8px;
+    }
+
+    td {
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .score {
+      color: #2f6ae1;
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Minh Code Challenge</h1>
+  <div class="user-dropdown">ngoducminh (879) ▼</div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- PROFILE -->
+  <div class="card">
+    <div class="profile">
+      <div class="avatar"></div>
+      <div>
+        <h2>ngoducminh</h2>
+        <p>Rating hiện tại: <b style="color:#2f6ae1">879</b></p>
+        <p>Danh hiệu: <b>Newbie</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <!-- DESIGN -->
+    <div class="card">
+      <div class="section-title design">
+        🛠 Thực hành (Design)
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Bài tập</th>
+            <th>Điểm</th>
+            <th>Thời gian</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Luyện tập code HTML 1</td>
+            <td class="score">48/100</td>
+            <td>27/2/2026</td>
+          </tr>
+          <tr>
+            <td>Luyện tập code HTML 1</td>
+            <td class="score">48/100</td>
+            <td>27/2/2026</td>
+          </tr>
+          <tr>
+            <td>Luyện tập code HTML 1</td>
+            <td class="score">48/100</td>
+            <td>27/2/2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="card">
+      <div class="section-title quiz">
+        📘 Lý thuyết (Quiz)
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tiêu đề Quiz</th>
+            <th>Điểm</th>
+            <th>Thời gian</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Trắc nghiệm HTML Cơ bản</td>
+            <td class="score">6/20</td>
+            <td>27/2/2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

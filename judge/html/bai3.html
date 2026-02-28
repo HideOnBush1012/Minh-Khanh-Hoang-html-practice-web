@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Bài tập 1</title>
+    <style>
+        /* Cấu hình chung */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8; /* Màu nền xám nhạt của trang */
+            padding: 40px;
+            color: #333;
+        }
+
+        /* Nút Back to Home */
+        .btn-back-home {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 25px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-back-home:hover {
+            opacity: 0.8;
+        }
+
+        /* Tiêu đề chính */
+        .main-title {
+            color: #2b7de9;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        /* Layout chia 2 cột */
+        .container {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Cột bên trái: Giao diện mục tiêu */
+        .target-ui-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            flex: 2; /* Chiếm nhiều không gian hơn */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .target-ui-card h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Khu vực giả lập hình ảnh bên trong */
+        .preview-box {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 40px;
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Giả lập giao diện con bên trong ảnh preview */
+        .inner-preview {
+            background: white;
+            width: 90%;
+            height: 250px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Cột bên phải: Upload & Score */
+        .submission-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            flex: 1; /* Chiếm ít không gian hơn */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Nút Upload Code */
+        .btn-upload {
+            background-color: #1a73e8;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        /* Bảng Submission */
+        .sub-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sub-table th {
+            text-align: left;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+            font-size: 16px;
+        }
+
+        .sub-table th:nth-child(2) {
+            text-align: center;
+            color: #d93025; /* Màu đỏ của chữ Score */
+        }
+
+        .sub-table th:last-child {
+            text-align: right;
+        }
+
+        /* Responsive cho màn hình nhỏ */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .target-ui-card, .submission-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" class="btn-back-home">← Back to Home</a>
+    
+    <h1 class="main-title">Bài tập 1</h1>
+
+    <div class="container">
+        <div class="target-ui-card">
+            <h2>Giao diện mục tiêu:</h2>
+            <div class="preview-box">
+                <div class="inner-preview">
+                    <div style="font-size: 10px; color: #aaa;">← Back to List</div>
+                    <div style="color: #2b7de9; font-weight: bold; margin-top: 5px;">Bài tập 1</div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <div style="border: 1px solid #eee; flex: 2; height: 100px; padding: 5px; font-size: 10px;"><b>Mô tả bài tập</b><br>aaaaa</div>
+                        <div style="border: 1px solid #eee; flex: 1; height: 100px; padding: 5px; background: #f9f9f9;">
+                             <div style="background: #1a73e8; height: 15px; width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-text">Hãy code giao diện giống hệt ảnh trên</p>
+        </div>
+
+        <div class="submission-card">
+            <button class="btn-upload">UPLOAD CODE</button>
+            
+            <table class="sub-table">
+                <thead>
+                    <tr>
+                        <th>Submission</th>
+                        <th>Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

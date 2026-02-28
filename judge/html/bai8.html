@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Harry Potter và Hòn Đá Phù Thủy</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #222;
+    }
+
+    /* HEADER */
+    .header {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .header input {
+      padding: 6px 10px;
+      width: 240px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .header .right {
+      margin-left: auto;
+      color: #555;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .book-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .chapter-title {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* NAV CHAPTER */
+    .chapter-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .chapter-nav button {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .chapter-nav select {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* CONTENT */
+    .content {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-wrap: wrap;
+      }
+
+      .header input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">docsach24</div>
+  <div>Danh mục</div>
+  <div>Thể loại</div>
+  <input type="text" placeholder="Nhập tên sách, tác giả...">
+  <div class="right">Đăng nhập</div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <div class="book-title">
+    Harry Potter Và Hòn Đá Phù Thủy - Tập 1
+  </div>
+
+  <div class="chapter-title">
+    Chương 01: ĐỨA BÉ VẪN SỐNG
+  </div>
+
+  <div class="chapter-nav">
+    <button>◀</button>
+    <select>
+      <option>Chương 01: ĐỨA BÉ VẪN SỐNG</option>
+    </select>
+    <button>▶</button>
+  </div>
+
+  <div class="content">
+    <p>
+      Ông bà Dursley, nhà số 4 đường Privet Drive, tự hào mà nói họ hoàn toàn bình
+      thường, cám ơn bà con đừng trông mong gì họ tin vào những chuyện kỳ lạ hay bí ẩn,
+      đơn giản là vì họ chẳng hơi đâu bận tâm đến mấy trò vớ vẩn đó.
+    </p>
+
+    <p>
+      Ông Dursley là giám đốc một công ty gọi là Grunnings, chuyên sản xuất máy khoan.
+      Ông là một người cao lớn lực lưỡng, cổ gần như không có, nhưng lại có một bộ ria
+      mép vĩ đại.
+    </p>
+
+    <p>
+      Gia đình Dursley có mọi thứ mà họ muốn, nhưng họ cũng có một bí mật, và nỗi sợ
+      lớn nhất của họ là cái bí mật đó bị ai đó bật mí.
+    </p>
+
+    <p>
+      Ông bà Dursley vẫn rùng mình ớn lạnh mỗi khi nghĩ đến chuyện hàng xóm sẽ nói gì
+      nếu thấy gia đình Potter xuất hiện trước cửa nhà mình.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

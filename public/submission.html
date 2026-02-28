@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submission Detail</title>
+
+<style>
+:root {
+    --primary: #2563eb;
+    --bg: #f1f5f9;
+}
+body { margin:0; font-family:Arial; background:var(--bg); }
+header {
+    background: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+.card {
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+pre {
+    background:#111;
+    color:#0f0;
+    padding:15px;
+    overflow:auto;
+    border-radius:8px;
+}
+button {
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+.rank-colored {
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2 onclick="location.href='index.html'" style="cursor:pointer">
+Minh Code Challenge
+</h2>
+<div id="authSection"></div>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>Submission Detail</h3>
+<p><b>User:</b> <span id="username"></span></p>
+<p><b>Problem:</b> <span id="problemTitle"></span></p>
+<p><b>Score:</b> <span id="score"></span></p>
+<p><b>Submitted At:</b> <span id="createdAt"></span></p>
+<p><b>Rating Change:</b> <span id="ratingChange"></span></p>
+<p><b>Best Submission:</b> <span id="bestBadge"></span></p>
+</div>
+
+<div class="card">
+<h3>Submitted Code</h3>
+<pre id="codeBlock"></pre>
+</div>
+
+</div>
+
+<script src="submission.js"></script>
+</body>
+</html>

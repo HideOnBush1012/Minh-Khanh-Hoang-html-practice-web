@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thực hành • HMK web</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">M</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">HMK web</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Practice theo ảnh • Auto chấm điểm</div>
+        </div>
+      </a>
+
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 class="panel-title">Danh sách bài Thực hành</h3>
+          <p class="panel-sub">Chọn một bài → upload HTML → hệ thống render & so sánh ảnh để chấm điểm.</p>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <a class="btn" href="quiz.html">🧠 Quiz</a>
+          <span class="badge">🖼️ Compare Image</span>
+        </div>
+      </div>
+
+      <!-- optional: thanh tìm kiếm (JS có thể thêm sau) -->
+      <div style="padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.16); display:flex; gap:10px; flex-wrap:wrap;">
+        <input
+          id="practiceSearch"
+          placeholder="Tìm bài (vd: flex, navbar, card...)"
+          style="flex:1; min-width: 220px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb; outline:none;"
+        />
+        <select
+          id="difficultyFilter"
+          style="padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb; outline:none;"
+        >
+          <option value="">All difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <!-- Grid cards -->
+      <div id="practiceGrid" class="practice-grid">
+        <!-- home.js sẽ fill vào đây -->
+      </div>
+
+      <div class="footer-actions">
+        <a class="btn" href="index.html">← Về trang chủ</a>
+        <a class="btn btn-primary" href="leaderboard.html">🏆 Leaderboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

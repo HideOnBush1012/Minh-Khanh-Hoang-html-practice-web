@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm HTML - Bài 5</title>
+    <style>
+        /* Thiết lập nền và font chữ */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Card thông tin chung (Tiêu đề đang tải) */
+        .header-card {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .header-card h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #1a202c;
+        }
+
+        .header-card p {
+            margin: 10px 0 0;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        /* Card câu hỏi */
+        .question-card {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        /* Lưới các lựa chọn (2 cột) */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Từng ô lựa chọn */
+        .option {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f8fafc;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Nhãn A, B, C, D bên trái */
+        .option-label {
+            background: #edf2f7;
+            padding: 12px 18px;
+            font-weight: bold;
+            border-right: 1px solid #e2e8f0;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        /* Nội dung đáp án */
+        .option-content {
+            padding: 12px 20px;
+            flex-grow: 1;
+            font-family: 'Courier New', Courier, monospace; /* Cho các thẻ HTML */
+            font-weight: 500;
+        }
+
+        /* --- Trạng thái ĐÁP ÁN ĐÚNG --- */
+        .option.correct {
+            border-color: #fbd38d; /* Màu vàng cam */
+            background-color: #fffaf0;
+        }
+
+        .option.correct .option-label {
+            border-right-color: #fbd38d;
+        }
+
+        /* Chữ nhỏ (Đáp án đúng) ở góc trên bên phải */
+        .correct-tag {
+            position: absolute;
+            top: 2px;
+            right: 8px;
+            font-size: 10px;
+            color: #ed8936;
+            font-style: italic;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-card">
+            <h1>Dang tải...</h1>
+            <p>Độ khó:</p>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">Câu 1: Thẻ nào dùng để tạo một đoạn văn trong HTML?</div>
+            <div class="options-grid">
+                <div class="option correct">
+                    <span class="correct-tag">(Đáp án đúng)</span>
+                    <div class="option-label">A</div>
+                    <div class="option-content">&lt;p&gt;</div>
+                </div>
+                <div class="option">
+                    <div class="option-label">C</div>
+                    <div class="option-content">&lt;text&gt;</div>
+                </div>
+                <div class="option">
+                    <div class="option-label">B</div>
+                    <div class="option-content">&lt;para&gt;</div>
+                </div>
+                <div class="option">
+                    <div class="option-label">D</div>
+                    <div class="option-content">&lt;div&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">Câu 2: Thẻ nào dùng để tạo liên kết trong HTML?</div>
+            <div class="options-grid">
+                <div class="option">
+                    <div class="option-label">A</div>
+                    <div class="option-content">&lt;link&gt;</div>
+                </div>
+                <div class="option correct">
+                    <span class="correct-tag">(Đáp án đúng)</span>
+                    <div class="option-label">C</div>
+                    <div class="option-content">&lt;a&gt;</div>
+                </div>
+                <div class="option">
+                    <div class="option-label">B</div>
+                    <div class="option-content">&lt;href&gt;</div>
+                </div>
+                <div class="option">
+                    <div class="option-label">D</div>
+                    <div class="option-content">&lt;url&gt;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

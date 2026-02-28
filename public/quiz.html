@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách Quiz • Minh Code Challenge</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">M</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">HMK web</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Hệ thống bài tập trắc nghiệm</div>
+        </div>
+      </a>
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 class="panel-title">Danh sách bài Quiz</h3>
+          <p class="panel-sub">Lưu ý: Mỗi bài Quiz bạn chỉ được nộp bài 1 lần duy nhất để tính điểm Elo.</p>
+        </div>
+        <span class="badge">⚡ Tự động tính Elo</span>
+      </div>
+
+      <div id="quizGrid" class="grid">
+        <!-- JS sẽ nạp dữ liệu vào đây -->
+      </div>
+      
+      <div class="footer-actions">
+        <a class="btn" href="index.html">← Quay lại trang chủ</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz_list.js"></script>
+</body>
+</html>

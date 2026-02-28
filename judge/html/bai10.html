@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trích dẫn</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f8f9fa;
+      color: #202122;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr 260px;
+      gap: 20px;
+      max-width: 1400px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* LEFT MENU */
+    .sidebar {
+      font-size: 14px;
+    }
+
+    .sidebar h4 {
+      margin: 10px 0;
+      font-size: 13px;
+      color: #54595d;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      padding: 4px 0;
+      color: #0645ad;
+      cursor: pointer;
+    }
+
+    .sidebar li:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      background: #fff;
+      padding: 20px 30px;
+      border: 1px solid #a2a9b1;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      border-bottom: 1px solid #a2a9b1;
+      padding-bottom: 5px;
+    }
+
+    .edit {
+      font-size: 14px;
+      color: #0645ad;
+      margin-left: 10px;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding-left: 20px;
+      border-left: 4px solid #c8ccd1;
+      color: #202122;
+    }
+
+    blockquote p {
+      margin: 0 0 8px;
+      font-style: italic;
+    }
+
+    blockquote footer {
+      text-align: right;
+      color: #54595d;
+      font-size: 14px;
+    }
+
+    /* RIGHT PANEL */
+    .settings {
+      font-size: 14px;
+    }
+
+    .settings h4 {
+      margin-top: 0;
+    }
+
+    .settings section {
+      margin-bottom: 20px;
+    }
+
+    .settings label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1000px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- LEFT -->
+  <aside class="sidebar">
+    <h4>Nội dung</h4>
+    <ul>
+      <li>Đầu</li>
+      <li>Nguồn gốc</li>
+      <li>Câu chuyện</li>
+      <li>Chủ đề</li>
+      <li>Phim điện ảnh</li>
+      <li>Ảnh hưởng</li>
+    </ul>
+  </aside>
+
+  <!-- CENTER -->
+  <main class="content">
+    <h1>
+      Trích dẫn
+      <span class="edit">[ sửa | sửa mã nguồn ]</span>
+    </h1>
+
+    <blockquote>
+      <p>
+        “After all this time? – Sau ngần ấy thời gian?<br>
+        Always. – Luôn luôn là như vậy.”
+      </p>
+      <footer>— Severus Snape</footer>
+    </blockquote>
+
+    <blockquote>
+      <p>
+        “Có những điều đáng để hy sinh, nhưng không có điều gì đáng để giết chóc.”
+      </p>
+      <footer>— Harry Potter</footer>
+    </blockquote>
+
+    <blockquote>
+      <p>
+        “Làm hoặc không làm, không có chuyện làm thử.”
+      </p>
+      <footer>— Albus Dumbledore</footer>
+    </blockquote>
+
+    <blockquote>
+      <p>
+        “Sách có thể cứu rỗi cả cuộc đời của bạn.”
+      </p>
+      <footer>— Hermione Granger</footer>
+    </blockquote>
+  </main>
+
+  <!-- RIGHT -->
+  <aside class="settings">
+    <h4>Giao diện</h4>
+
+    <section>
+      <strong>Văn bản</strong>
+      <label><input type="radio" name="font"> Nhỏ</label>
+      <label><input type="radio" name="font" checked> Tiêu chuẩn</label>
+      <label><input type="radio" name="font"> Lớn</label>
+    </section>
+
+    <section>
+      <strong>Màu</strong>
+      <label><input type="radio" name="theme" checked> Sáng</label>
+      <label><input type="radio" name="theme"> Tối</label>
+    </section>
+  </aside>
+
+</div>
+
+</body>
+</html>

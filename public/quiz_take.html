@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Làm Quiz</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="quiz.html">
+        <div class="brand-badge">Q</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">Quiz</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Làm bài & nhận điểm</div>
+        </div>
+      </a>
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 id="quizTitle" class="panel-title">Loading...</h3>
+          <p id="quizHint" class="panel-sub">Chọn đáp án rồi bấm Submit.</p>
+        </div>
+        <span id="counter" class="badge">0/0</span>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-bar"><div id="progressFill"></div></div>
+        <div class="muted" style="margin-top:10px; font-size:12px;">
+          Tip: Bạn có thể để trống câu chưa chắc, vẫn nộp được.
+        </div>
+      </div>
+
+      <form id="quizForm"></form>
+
+      <div class="footer-actions">
+        <a class="btn" href="quiz.html">← Quay lại</a>
+        <button id="submitBtn" class="btn btn-primary" type="button">Submit</button>
+      </div>
+
+      <div style="padding: 0 18px 18px;">
+        <div id="result" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz_take.js"></script>
+</body>
+</html>

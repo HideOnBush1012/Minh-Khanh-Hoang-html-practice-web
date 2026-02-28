@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      body.quiz-theme table {
+        background: transparent;
+      }
+      body.quiz-theme th {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      }
+      body.quiz-theme td {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e5e7eb;
+      }
+      body.quiz-theme tr:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+    </style>
+  </head>
+
+  <body class="quiz-theme">
+    <header class="quiz-header">
+      <div class="inner">
+        <a class="brand" href="index.html">
+          <div class="brand-badge">M</div>
+          <div>
+            <div style="font-weight: 800; line-height: 1">HMK web</div>
+            <div class="muted" style="font-size: 12px; margin-top: 2px">
+              Global Ranking
+            </div>
+          </div>
+        </a>
+
+        <div id="authSection"></div>
+      </div>
+    </header>
+
+    <div class="container quiz-container">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h3 class="panel-title">Global Leaderboard</h3>
+            <p class="panel-sub">
+              Xếp hạng theo Rating + số bài đã hoàn thành.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <a class="btn" href="practice.html">🧩 Practice</a>
+            <a class="btn" href="quiz.html">🧠 Quiz</a>
+          </div>
+        </div>
+
+        <div style="padding: 18px; overflow: auto">
+          <table id="leaderboardTable">
+            <thead>
+              <tr>
+                <th style="width: 72px">#</th>
+                <th>User</th>
+                <th style="width: 140px">Rating</th>
+                <th style="width: 140px">Tasks</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="footer-actions">
+          <a class="btn" href="index.html">← Trang chủ</a>
+          <a class="btn btn-primary" href="practice.html">Bắt đầu Practice</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/leaderboard.js"></script>
+  </body>
+</html>

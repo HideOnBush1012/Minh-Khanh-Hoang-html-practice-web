@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4 - Frontend Challenge</title>
+    <style>
+        /* Thiết lập cơ bản */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            padding: 40px;
+            color: #333;
+        }
+
+        /* Nút quay lại trang chủ */
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            background-color: #6c757d; /* Màu xám */
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 25px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-back-home:hover { opacity: 0.9; }
+
+        /* Tiêu đề bài tập */
+        .main-title {
+            font-size: 34px;
+            color: #2b7de9;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Layout chính */
+        .container {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        /* Card chung */
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Cột trái: Giao diện mục tiêu --- */
+        .left-column { flex: 2; }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Khung xám chứa hình ảnh đề bài */
+        .preview-box {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 40px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Giả lập hình ảnh bên trong (Placeholder) */
+        .inner-image-mockup {
+            background: white;
+            width: 90%;
+            height: 250px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 25px;
+            font-style: italic;
+            color: #777;
+        }
+
+        /* --- Cột phải: Khu vực nộp bài --- */
+        .right-column { flex: 1.2; }
+
+        /* Nút Upload Code xanh dương */
+        .btn-upload {
+            display: block;
+            width: 100%;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            transition: background 0.2s;
+        }
+
+        .btn-upload:hover { background-color: #1557b0; }
+
+        /* Bảng Submission */
+        .sub-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sub-table th {
+            text-align: left;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #333;
+            font-size: 16px;
+        }
+
+        .sub-table th.score-col {
+            text-align: center;
+            color: #d93025; /* Màu đỏ của chữ Score */
+        }
+
+        .sub-table th.actions-col { text-align: right; }
+
+        .sub-table td {
+            padding: 15px 0;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        /* Số điểm màu đỏ */
+        .score-val {
+            text-align: center;
+            color: #d93025;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Cột hành động */
+        .actions-cell {
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Nút trong bảng */
+        .btn-table {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-download { background-color: #1a73e8; }
+        .btn-delete { background-color: #d93025; }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .container { flex-direction: column; }
+            .left-column, .right-column { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" class="btn-back-home">← Back to Home</a>
+    
+    <h1 class="main-title">Bài tập 4</h1>
+
+    <div class="container">
+        <div class="card left-column">
+            <div class="section-title">Giao diện mục tiêu:</div>
+            <div class="preview-box">
+                <div class="inner-image-mockup">
+                    <div style="font-size: 10px; color: #aaa;">← Back to List</div>
+                    <div style="color: #2b7de9; font-weight: bold; margin-top: 5px;">Bài tập 1</div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <div style="border: 1px solid #eee; flex: 2; height: 100px;"></div>
+                        <div style="border: 1px solid #eee; flex: 1; height: 100px; background: #f9f9f9;"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-text">Hãy code giao diện giống hệt ảnh trên</p>
+        </div>
+
+        <div class="card right-column">
+            <button class="btn-upload">UPLOAD CODE</button>
+            
+            <table class="sub-table">
+                <thead>
+                    <tr>
+                        <th>Submission</th>
+                        <th class="score-col">Score</th>
+                        <th class="actions-col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Submission #1</td>
+                        <td class="score-val">10</td>
+                        <td class="actions-cell">
+                            <button class="btn-table btn-download">Download</button>
+                            <button class="btn-table btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

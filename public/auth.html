@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng nhập / Đăng ký</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">M</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">Minh Code Challenge</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Đăng nhập để lưu tiến độ</div>
+        </div>
+      </a>
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 class="panel-title">Tài khoản</h3>
+          <p class="panel-sub">Đăng nhập hoặc tạo tài khoản mới.</p>
+        </div>
+      </div>
+
+      <div style="padding:18px; display:grid; gap:14px; grid-template-columns: repeat(12,1fr);">
+        <div class="panel" style="grid-column: span 6; padding:18px;">
+          <h4 style="margin:0 0 10px;">Đăng nhập</h4>
+          <input id="loginUsername" placeholder="Username" style="width:100%; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb;">
+          <div style="height:10px;"></div>
+          <input id="loginPassword" type="password" placeholder="Password" style="width:100%; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb;">
+          <div style="height:14px;"></div>
+          <button class="btn btn-primary" id="loginBtn" style="width:100%;">Login</button>
+        </div>
+
+        <div class="panel" style="grid-column: span 6; padding:18px;">
+          <h4 style="margin:0 0 10px;">Đăng ký</h4>
+          <input id="registerUsername" placeholder="Username" style="width:100%; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb;">
+          <div style="height:10px;"></div>
+          <input id="registerPassword" type="password" placeholder="Password" style="width:100%; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb;">
+          <div style="height:14px;"></div>
+          <button class="btn btn-primary" id="registerBtn" style="width:100%;">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

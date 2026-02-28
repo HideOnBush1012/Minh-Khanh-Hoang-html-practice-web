@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Làm bài Quiz - Minh Khanh Hoang Code Challenge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 1. Gia cố CSS Grid để đảm bảo 2 cột tuyệt đối */
+        .option-container {
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* Ép 2 cột bằng nhau */
+            gap: 15px; 
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .option-btn {
+            display: flex; 
+            align-items: stretch;
+            border: 2px solid #cbd5e1;
+            background: white; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            overflow: hidden;
+            min-height: 60px;
+            width: 100%;
+            min-width: 0; /* Quan trọng: Cho phép nội dung co giãn trong grid */
+            padding: 0;
+            text-align: left;
+        }
+
+        .option-btn .text { 
+            padding: 10px 15px; 
+            flex: 1; 
+            font-size: 0.95rem;
+            word-break: break-word; /* Tự động xuống dòng nếu nội dung quá dài */
+            white-space: normal;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Đảm bảo nhãn Đúng/Sai không đè lên câu hỏi */
+        .quiz-item-box {
+            position: relative;
+            padding-top: 35px !important;
+        }
+
+        /* Các Style màu sắc giữ nguyên như bản trước */
+        .box-correct { border: 2px solid #16a34a !important; background: #f0fdf4; }
+        .box-wrong { border: 2px solid #dc2626 !important; background: #fef2f2; }
+        .label-status { position: absolute; top: -12px; left: 15px; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; color: white; border-radius: 4px; z-index: 5; }
+        .label-correct { background: #16a34a; }
+        .label-wrong { background: #dc2626; }
+        .ans-selected { border-color: #16a34a !important; background: #dcfce7 !important; }
+        .ans-wrong-selected { border-color: #dc2626 !important; background: #fee2e2 !important; }
+        .ans-actual-correct { border-color: #f59e0b !important; background: #fef3c7 !important; }
+    </style>
+</head>
+<body>
+<header>
+    <h2 onclick="location.href='index.html'" style="cursor:pointer">Minh Khanh Hoang Code Challenge</h2>
+    <div id="authSection"></div>
+</header>
+
+<div class="container">
+    <div id="quizHeader" class="card">
+        <h1 id="quizTitle" style="margin-bottom: 5px;">Đang tải...</h1>
+        <p style="color: #64748b;">Độ khó: <span id="quizDifficulty" style="font-weight: bold;"></span></p>
+    </div>
+
+    <div id="questionList"></div>
+
+    <div id="actionArea" style="text-align: center; margin-top: 30px; padding-bottom: 50px;">
+        <button id="submitBtn" class="btn-primary" style="padding: 15px 50px; font-size: 1.2rem;" onclick="submitQuiz()">Nộp bài</button>
+        <button id="exitBtn" class="btn-primary" style="background:#64748b; margin-left:10px;" onclick="location.href='quizzes.html'">Thoát & Tạm dừng</button>
+    </div>
+
+    <!-- Kết quả tổng quát -->
+    <div id="resultSummary" class="card hidden" style="text-align: center; border: 4px solid #2563eb; position: sticky; top: 20px; z-index: 100;">
+        <h2 id="finalScore" style="margin:0; color:#2563eb;"></h2>
+        <h3 id="eloGain" style="color: #16a34a; margin: 10px 0;"></h3>
+        <button class="btn-primary" onclick="location.href='quizzes.html'">Quay lại danh sách</button>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const quizId = urlParams.get('id');
+let currentQuestions = [];
+let savedAnswers = JSON.parse(localStorage.getItem(`draft_quiz_${quizId}`)) || {};
+
+// HÀM QUAN TRỌNG NHẤT: Chuyển đổi < > thành thực thể HTML để hiển thị văn bản thuần
+function escapeHTML(str) {
+    if (!str) return "";
+    return str.toString()
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+const mode = urlParams.get('mode'); // Lấy mode từ URL
+
+async function init() {
+    try {
+        if (mode === 'view') {
+            const res = await fetch(`/api/quiz/review/${quizId}`);
+            const data = await res.json();
+            if (data.error) return alert(data.error);
+
+            // THÊM 2 DÒNG NÀY ĐỂ HIỂN THỊ TITLE VÀ ĐỘ KHÓ
+            setSafeText("quizTitle", data.title);
+            setSafeText("quizDifficulty", data.difficulty);
+
+            currentQuestions = data.questions;
+            renderQuestions();
+            showReviewResults(data); 
+            return;
+        }
+
+        // Chế độ làm bài bình thường (đã có sẵn title)
+        const res = await fetch(`/api/quiz/${quizId}`);
+        const data = await res.json();
+        setSafeText("quizTitle", data.title);
+        setSafeText("quizDifficulty", data.difficulty);
+        currentQuestions = data.questions;
+        renderQuestions();
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+// Thêm hàm hiển thị kết quả ở chế độ xem lại
+function showReviewResults(data) {
+    document.getElementById("actionArea").classList.add("hidden");
+    const summary = document.getElementById("resultSummary");
+    summary.classList.remove("hidden");
+    
+    document.getElementById("finalScore").innerText = `Điểm đã đạt: ${data.score}`;
+    document.getElementById("eloGain").innerText = `Chế độ: Xem lại đáp án`;
+
+    data.questions.forEach(q => {
+        const box = document.getElementById(`box-${q.id}`);
+        if (!box) return;
+
+        // 1. Vô hiệu hóa tương tác
+        const buttons = box.querySelectorAll('.option-btn');
+        buttons.forEach(b => {
+            b.onclick = null;
+            b.style.cursor = "default";
+        });
+
+        // 2. Đánh dấu màu cam vào đáp án đúng thực tế
+        // (Dòng chữ "(Đáp án đúng)" sẽ tự hiện ra do CSS ::after ở trên)
+        const rightBtn = document.getElementById(`btn-${q.id}-${q.correctAnswer}`);
+        if (rightBtn) {
+            rightBtn.classList.add('ans-actual-correct');
+        }
+        
+        // --- ĐÃ XÓA PHẦN TẠO LABEL TẠI ĐÂY ---
+        // Không còn document.createElement("div") cho label nữa
+    });
+}
+
+function renderOptionBtn(qId, letter, text) {
+    const safeText = escapeHTML(text); // Mã hóa nội dung đáp án (<a> -> &lt;a&gt;)
+    const isSelected = savedAnswers[qId] === letter ? 'selected' : '';
+    
+    // Sử dụng dấu nháy kép cho các thuộc tính và truyền tham số an toàn
+    return `
+        <button class="option-btn ${isSelected}" id="btn-${qId}-${letter}" onclick="selectOption(${qId}, '${letter}')">
+            <div class="letter">${letter}</div>
+            <div class="text">${safeText}</div>
+        </button>
+    `;
+}
+
+function renderQuestions() {
+    const list = document.getElementById("questionList");
+    let html = "";
+
+    // Sử dụng vòng lặp thường thay vì .map để dễ kiểm soát và debug
+    for (let i = 0; i < currentQuestions.length; i++) {
+        const q = currentQuestions[i];
+        try {
+            html += `
+            <div class="quiz-item-box" id="box-${q.id}">
+                <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 20px;">
+                    Câu ${i + 1}: ${escapeHTML(q.question)}
+                </p>
+                <div class="option-container">
+                    ${renderOptionBtn(q.id, 'A', q.answerA)}
+                    ${renderOptionBtn(q.id, 'C', q.answerC)}
+                    ${renderOptionBtn(q.id, 'B', q.answerB)}
+                    ${renderOptionBtn(q.id, 'D', q.answerD)}
+                </div>
+            </div>`;
+        } catch (e) {
+            console.error(`Lỗi tại câu thứ ${i + 1}:`, e);
+        }
+    }
+    list.innerHTML = html;
+}
+
+function selectOption(qId, letter) {
+    // Tìm container chứa câu hỏi này để chỉ bỏ chọn các nút trong đó
+    const box = document.getElementById(`box-${qId}`);
+    if (!box) return;
+
+    box.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+    
+    const selectedBtn = document.getElementById(`btn-${qId}-${letter}`);
+    if (selectedBtn) selectedBtn.classList.add('selected');
+    
+    savedAnswers[qId] = letter;
+    localStorage.setItem(`draft_quiz_${quizId}`, JSON.stringify(savedAnswers));
+}
+
+async function submitQuiz() {
+    const answeredCount = Object.keys(savedAnswers).length;
+    if (answeredCount === 0) {
+        alert("Vui lòng chọn ít nhất một đáp án trước khi nộp bài!");
+        return;
+    }
+    
+    if (!confirm("Bạn có chắc chắn muốn nộp bài?")) return;
+
+    try {
+        const res = await fetch("/api/quiz/submit", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ quizId, userAnswers: savedAnswers })
+        });
+
+        const data = await res.json();
+        if (data.error) return alert(data.error);
+        
+        localStorage.removeItem(`draft_quiz_${quizId}`);
+        showResults(data);
+    } catch (err) {
+        alert("Lỗi kết nối khi nộp bài!");
+    }
+}
+
+function showResults(data) {
+    document.getElementById("actionArea").classList.add("hidden");
+    const summary = document.getElementById("resultSummary");
+    summary.classList.remove("hidden");
+    
+    // data.total ở đây lấy từ res.json ở Bước 1
+    document.getElementById("finalScore").innerText = `Kết quả: ${data.score}/${data.total}`;
+    document.getElementById("eloGain").innerText = `Elo Lý thuyết: +${data.gain}`;
+
+    data.details.forEach(item => {
+        const box = document.getElementById(`box-${item.id}`);
+        if (!box) return;
+
+        const userAns = savedAnswers[item.id];
+        const actualCorrect = item.correctAnswer; 
+
+        const buttons = box.querySelectorAll('.option-btn');
+        buttons.forEach(b => {
+            b.onclick = null;
+            b.style.cursor = "default";
+            b.classList.remove('selected');
+        });
+
+        const label = document.createElement("div");
+        label.className = "label-status";
+
+        if (item.correct) {
+            box.classList.add('box-correct');
+            label.className += " label-correct";
+            label.innerText = "ĐÚNG";
+            document.getElementById(`btn-${item.id}-${actualCorrect}`).classList.add('ans-selected');
+        } else {
+            box.classList.add('box-wrong');
+            label.className += " label-wrong";
+            label.innerText = "SAI";
+            if (userAns) document.getElementById(`btn-${item.id}-${userAns}`).classList.add('ans-wrong-selected');
+            document.getElementById(`btn-${item.id}-${actualCorrect}`).classList.add('ans-actual-correct');
+        }
+        box.prepend(label);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

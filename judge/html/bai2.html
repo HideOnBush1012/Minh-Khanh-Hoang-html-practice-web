@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Code Challenge</title>
+    <style>
+        /* Thiết lập cơ bản */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; /* Màu nền xám nhạt */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Container chính bao bọc toàn bộ nội dung */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #e9eff5; /* Màu nền phía sau các card */
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Header màu xanh dương */
+        .header {
+            background-color: #2b6ce2; /* Màu xanh dương đậm */
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header .user-info {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        /* Phần thân chứa các card */
+        .content {
+            padding: 20px;
+        }
+
+        /* Card chung */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Card tiêu đề đặc biệt (Thực hành Design) */
+        .title-card {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        /* Nút Quay lại */
+        .btn-back {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-back::before {
+            content: "◀";
+            font-size: 10px;
+            margin-right: 5px;
+        }
+
+        /* Các dòng bài tập */
+        .exercise-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .difficulty {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Hiệu ứng khi di chuột vào card */
+        .card:hover {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">Minh Code Challenge</div>
+            <div class="user-info">ngoducminh (879) ▼</div>
+        </div>
+
+        <div class="content">
+            
+            <div class="card title-card">
+                <span>Thực hành Design</span>
+                <button class="btn-back">Quay lại</button>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">1. Luyện tập code HTML 1</span>
+                <span class="difficulty">Độ khó: 800</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">2. Luyện tập code HTML 2</span>
+                <span class="difficulty">Độ khó: 1000</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">3. Luyện tập code HTML 3</span>
+                <span class="difficulty">Độ khó: 1200</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">4. Luyện tập code HTML 4</span>
+                <span class="difficulty">Độ khó: 1500</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">5. Luyện tập code HTML 5</span>
+                <span class="difficulty">Độ khó: 1800</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">6. Luyện tập code HTML 6</span>
+                <span class="difficulty">Độ khó: 2000</span>
+            </div>
+
+            <div class="card">
+                <span class="exercise-name">7. Luyện tập code HTML 7</span>
+                <span class="difficulty">Độ khó: 2200</span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

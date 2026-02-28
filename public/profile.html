@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">M</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">Minh Code Challenge</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Hồ sơ cá nhân</div>
+        </div>
+      </a>
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <!-- Profile summary -->
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 class="panel-title">
+            <span id="username">Loading...</span>
+          </h3>
+          <p class="panel-sub" id="profileSub">Đang tải thông tin...</p>
+        </div>
+        <span class="badge" id="rankBadge">Rank</span>
+      </div>
+
+      <div class="grid">
+        <div class="feature" style="grid-column: span 4;">
+          <h4>⭐ Rating</h4>
+          <p><b id="rating">-</b></p>
+        </div>
+
+        <div class="feature" style="grid-column: span 4;">
+          <h4>📈 Max Rating</h4>
+          <p><b id="maxRating">-</b></p>
+        </div>
+
+        <div class="feature" style="grid-column: span 4;">
+          <h4>🏷️ Rank</h4>
+          <p><b id="rankTitle">-</b></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submission history -->
+    <div class="panel" style="margin-top:14px;">
+      <div class="panel-head">
+        <div>
+          <h3 class="panel-title">Lịch sử submission</h3>
+          <p class="panel-sub">Click vào score để xem chi tiết submission.</p>
+        </div>
+        <span class="badge">🧾 History</span>
+      </div>
+
+      <div style="padding: 18px;">
+        <table id="submissionTable" style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Problem</th>
+              <th>Score</th>
+              <th>Rating</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

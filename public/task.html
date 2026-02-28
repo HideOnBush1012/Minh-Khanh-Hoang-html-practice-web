@@ -1,0 +1,119 @@
+=<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Practice • Problem</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- override nhẹ để table hợp dark theme -->
+  <style>
+    body.quiz-theme table{ background: transparent; }
+    body.quiz-theme th{ background: rgba(255,255,255,.10); border-bottom: 1px solid rgba(255,255,255,.16); }
+    body.quiz-theme td{ border-bottom: 1px solid rgba(255,255,255,.10); color: #e5e7eb; }
+    body.quiz-theme tr:hover{ background: rgba(255,255,255,.06); }
+  </style>
+</head>
+
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">M</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">HMK web</div>
+          <div class="muted" style="font-size:12px; margin-top:2px;">Practice • Render & chấm theo ảnh</div>
+        </div>
+      </a>
+
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3 id="problemTitle" class="panel-title">Loading...</h3>
+          <p class="panel-sub">
+            Difficulty: <span id="difficulty" class="badge">...</span>
+            <span class="badge">🖼️ Image match</span>
+            <span class="badge">⚡ Auto score</span>
+          </p>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <a class="btn" href="practice.html">← Danh sách bài</a>
+          <a class="btn" href="leaderboard.html">🏆 Leaderboard</a>
+        </div>
+      </div>
+
+      <div class="practice-layout">
+        <!-- LEFT: target image -->
+        <div class="preview">
+          <div class="preview-head">
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <span class="badge">🎯 Target</span>
+              <span class="muted">Hãy code giống ảnh này</span>
+            </div>
+          </div>
+          <img id="targetImage" alt="Target image" />
+        </div>
+
+        <!-- RIGHT: upload + best score -->
+        <div class="codebox">
+          <div class="codebox-head">
+            <div class="codebox-title">Nộp bài</div>
+            <div class="badge">Best: <span id="myBest">0</span>/100</div>
+          </div>
+
+          <div style="padding: 14px;">
+            <div class="muted" style="margin-bottom:10px;">
+              Chọn file <b>.html</b> rồi bấm Submit để hệ thống render & chấm điểm.
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <input type="file" id="fileInput" accept=".html,text/html"
+                     style="flex:1; min-width:220px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#e5e7eb;">
+              <!-- GIỮ onclick để task.js bắt đúng nút -->
+              <button class="btn btn-primary" onclick="submitSolution()">Submit</button>
+            </div>
+
+            <div class="muted" style="margin-top:12px; font-size:12px;">
+              Tip: Điểm 100 thường sẽ được tô xanh trong “Best”.
+            </div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,.16); padding: 14px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+              <h4 style="margin:0;">Top 10</h4>
+              <span class="badge">🏅 Task leaderboard</span>
+            </div>
+
+            <div style="overflow:auto;">
+              <table id="taskLeaderboard">
+                <thead>
+                  <tr>
+                    <th style="width:72px;">#</th>
+                    <th>User</th>
+                    <th style="width:120px;">Score</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-actions">
+        <a class="btn" href="practice.html">← Practice</a>
+        <a class="btn btn-primary" href="quiz.html">🧠 Quiz</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/task.js"></script>
+</body>
+</html>

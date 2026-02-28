@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kết quả Quiz • Minh Code Challenge</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .correct-answer-box {
+      border: 2px solid #16a34a !important;
+      background: rgba(22, 163, 74, 0.1) !important;
+      position: relative;
+    }
+    .correct-label {
+      color: #16a34a;
+      font-weight: bold;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+    .res-card {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="quiz-theme">
+  <header class="quiz-header">
+    <div class="inner">
+      <a class="brand" href="quiz.html">
+        <div class="brand-badge">Q</div>
+        <div>
+          <div style="font-weight:800; line-height:1;">Quiz Result</div>
+          <div id="quizTitleHeader" class="muted" style="font-size:12px; margin-top:2px;">Xem lại bài làm</div>
+        </div>
+      </a>
+      <div id="authSection"></div>
+    </div>
+  </header>
+
+  <div class="container quiz-container">
+    <div class="panel">
+      <div class="panel-head" style="background: rgba(22, 163, 74, 0.05);">
+        <div>
+          <h3 id="resTitle" class="panel-title">Đang tải kết quả...</h3>
+          <p id="resStats" class="panel-sub" style="font-size: 16px; color: #e5e7eb;"></p>
+        </div>
+        <div id="eloBadge" class="badge" style="background: #16a34a; color: white; border: none; padding: 8px 15px;"></div>
+      </div>
+
+      <div id="resultContent">
+        <!-- Chi tiết câu hỏi và đáp án đúng sẽ hiện ở đây -->
+      </div>
+
+      <div class="footer-actions">
+        <a class="btn btn-primary" href="quiz.html">Quay lại danh sách Quiz</a>
+        <a class="btn" href="leaderboard.html">Xem Bảng xếp hạng 🏆</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz_result.js"></script>
+</body>
+</html>

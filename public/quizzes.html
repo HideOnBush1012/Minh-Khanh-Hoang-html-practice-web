@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập Lý thuyết</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: #f1f5f9; font-family: Arial; }
+        header { background: #2563eb; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .container { max-width: 800px; margin: 40px auto; }
+        .card { background: white; padding: 20px; border-radius: 10px; }
+        .quiz-row { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+<header>
+    <h2 onclick="location.href='index.html'" style="cursor:pointer">Minh Khanh Hoang Code Challenge</h2>
+    <div id="authSection"></div>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h3>Danh sách bài trắc nghiệm</h3>
+        <div id="quizList">Đang tải...</div>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script>
+async function loadQuizzes() {
+    const res = await fetch("/api/quizzes");
+    if (res.status === 401) return location.href = "index.html";
+    const data = await res.json();
+    const container = document.getElementById("quizList");
+    container.innerHTML = data.map(q => `
+        <div class="quiz-row">
+            <div>
+                <b>${q.title}</b><br>
+                <small>Độ khó: ${q.difficulty}</small>
+            </div>
+            <!-- Nếu đã làm (isDone), chuyển hướng kèm thêm tham số mode=view -->
+            <button class="btn-primary" 
+                    onclick="location.href='do-quiz.html?id=${q.id}${q.isDone ? '&mode=view' : ''}'"
+                    style="${q.isDone ? 'background: #64748b;' : ''}">
+                ${q.isDone ? 'Xem kết quả' : 'Làm bài'}
+            </button>
+        </div>
+    `).join('');
+}
+document.addEventListener("DOMContentLoaded", loadQuizzes);
+</script>
+</body>
+</html>

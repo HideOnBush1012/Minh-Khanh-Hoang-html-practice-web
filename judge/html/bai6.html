@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bài trắc nghiệm HTML</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f3f6fb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .question-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      border: 1px solid #d9e0ec;
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fff;
+    }
+
+    .option:hover {
+      border-color: #4a6cf7;
+      background: #f5f7ff;
+    }
+
+    .option-label {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #eef1f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 12px;
+      color: #333;
+    }
+
+    .option-text {
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Câu 11 -->
+  <div class="question-card">
+    <div class="question-title">
+      Câu 11: Thẻ nào dùng để nhúng một trang web khác vào trong trang hiện tại?
+    </div>
+    <div class="options">
+      <div class="option">
+        <div class="option-label">A</div>
+        <div class="option-text">&lt;iframe&gt;</div>
+      </div>
+      <div class="option">
+        <div class="option-label">B</div>
+        <div class="option-text">&lt;embed&gt;</div>
+      </div>
+      <div class="option">
+        <div class="option-label">C</div>
+        <div class="option-text">&lt;object&gt;</div>
+      </div>
+      <div class="option">
+        <div class="option-label">D</div>
+        <div class="option-text">&lt;frame&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Câu 12 -->
+  <div class="question-card">
+    <div class="question-title">
+      Câu 12: Thuộc tính <b>controls</b> trong thẻ &lt;video&gt; có tác dụng gì?
+    </div>
+    <div class="options">
+      <div class="option">
+        <div class="option-label">A</div>
+        <div class="option-text">Tự động phát video</div>
+      </div>
+      <div class="option">
+        <div class="option-label">B</div>
+        <div class="option-text">Hiển thị thanh điều khiển video</div>
+      </div>
+      <div class="option">
+        <div class="option-label">C</div>
+        <div class="option-text">Tăng âm lượng</div>
+      </div>
+      <div class="option">
+        <div class="option-label">D</div>
+        <div class="option-text">Ẩn video</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

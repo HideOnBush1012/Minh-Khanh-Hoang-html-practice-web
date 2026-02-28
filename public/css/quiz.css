@@ -1,0 +1,77 @@
+/* css/quiz.css */
+.quiz-item-box {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.option-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    border: 2px solid #cbd5e1;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.2s;
+    padding: 0;
+    text-align: left;
+}
+
+.option-btn .letter {
+    background: #f1f5f9;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-right: 2px solid #cbd5e1;
+    min-width: 45px;
+    text-align: center;
+}
+
+.option-btn .text {
+    padding: 10px 15px;
+    flex: 1;
+}
+
+.option-btn.selected {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.option-btn.selected .letter {
+    background: #2563eb;
+    color: white;
+    border-right-color: #2563eb;
+}
+
+/* Các trạng thái kết quả */
+.box-correct { border: 3px solid #22c55e !important; }
+.box-wrong { border: 3px solid #ef4444 !important; }
+
+.label-status {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    padding: 2px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.label-correct { background: #22c55e; }
+.label-wrong { background: #ef4444; }
+
+/* Viền đáp án kết quả */
+.ans-selected { border: 3px solid #2563eb !important; } /* Xanh dương cho đáp án đã chọn */
+.ans-wrong-selected { border: 3px solid #ef4444 !important; } /* Đỏ nếu chọn sai */
+.ans-actual-correct { border: 3px solid #f97316 !important; } /* Cam cho đáp án đúng thực tế */
