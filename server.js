@@ -194,10 +194,6 @@ app.get("/api/profile", (req, res) => {
     });
 });
 
-app.get("/api/admin/download-db", (req, res) => {
-    const dbFilePath = "/data/database.db";
-    res.download(dbFilePath);
-});
 /* ====== LISTEN CUỐI CÙNG ====== */
 app.listen(PORT, "0.0.0.0", () => {
   console.log("Server running on port " + PORT);
